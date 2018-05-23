@@ -10,3 +10,11 @@ dataset$Age = ifelse(is.na(dataset$Age), # Se nao tem o dado
 dataset$Salary = ifelse(is.na(dataset$Salary), # Se nao tem o dado
                         ave(dataset$Salary, FUN = function(x) mean(x, na.rm = TRUE)), # Usa a media
                         dataset$Salary) # Senao usa o proprio dado
+
+# Codificando dados de categorias (qualitativos)
+dataset$Country = factor(dataset$Country,
+                         levels = c('France', 'Spain', 'Germany'),
+                         labels = c(1, 2, 3))
+dataset$Purchased = factor(dataset$Purchased,
+                         levels = c('No', 'Yes'),
+                         labels = c(0, 1))
