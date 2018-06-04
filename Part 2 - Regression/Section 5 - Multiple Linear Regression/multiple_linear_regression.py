@@ -39,3 +39,8 @@ regressor.fit(X_train, y_train)
 
 # Predicting the Test set results
 y_pred = regressor.predict(X_test)
+
+# Otimizando o modelo com Backward Elimination
+# Adicionando uma coluna de 1's para simular b0x0 de (y = b0x0 + b1x1 ... + bnxn)
+import statsmodels.formula.api as sm
+X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
