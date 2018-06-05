@@ -26,3 +26,18 @@ regressor = lm(formula = Profit ~ .,
 
 # Predicting the Test set results
 y_pred = predict(regressor, newdata = test_set)
+
+# Otimizando o modelo usando Backward Elimination
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State,
+               data = dataset)
+summary(regressor)
+# A cada iteracao, sai a coluna que tiver o maior valor P, se estiver acima de 0.05
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,
+               data = dataset)
+summary(regressor)
+regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend,
+               data = dataset)
+summary(regressor)
+regressor = lm(formula = Profit ~ R.D.Spend,
+               data = dataset)
+summary(regressor)
